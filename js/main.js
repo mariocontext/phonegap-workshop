@@ -1,5 +1,13 @@
 var app = {
 
+    showAlert: function (message, title) {
+        if (navigator.notification) {
+            navigator.notification.alert(message, null, title, 'OK');
+        } else {
+            alert(title ? (title + ": " + message) : message);
+        }
+    },
+
     registerEvents: function() {
         var self = this;
         $(window).on('hashchange', $.proxy(this.route, this));
