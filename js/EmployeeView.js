@@ -32,10 +32,10 @@ var EmployeeView = function(employee) {
 	        return;
 	    }
 	    var contact = navigator.contacts.create();
-	    contact.name = {givenName: employee.firstName, familyName: employee.lastName};
+	    contact.name = {givenName: app.firstName, familyName: app.employee.lastName};
 	    var phoneNumbers = [];
-	    phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
-	    phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
+	    phoneNumbers[0] = new ContactField('work', app.employee.officePhone, false);
+	    phoneNumbers[1] = new ContactField('mobile', app.employee.cellPhone, true); // preferred number
 	    contact.phoneNumbers = phoneNumbers;
 	    contact.save();
 	    return false;
